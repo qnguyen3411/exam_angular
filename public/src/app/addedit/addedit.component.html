@@ -1,0 +1,8 @@
+
+<h2>Pet Shelter</h2>
+<h5 *ngIf="!petToEdit['id']">Know of a pet needing a home?</h5>
+<h5 *ngIf="petToEdit['id']">Edit this pet</h5>
+
+<div class="col-5 bg-light">
+  <app-form [existingData]="petToEdit" (formDidSubmit)="onFormSubmit()"></app-form>
+</div>

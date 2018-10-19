@@ -1,9 +1,35 @@
-
-<form (submit)="onSubmit()">
-  <input type="text" name="field1" [(ngModel)]="postData.field1">
-  <input type="text" name="field2" [(ngModel)]="postData.field2">
-  <input type="text" name="field3" [(ngModel)]="postData.field3">
-  <input type="text" name="field4" [(ngModel)]="postData.field4">
-
-  <input type="submit" value="SUBMIT">
+<form >
+  Pet Name:
+  <input class="form-control" type="text" name="name" [(ngModel)]="postData.name">
+  <p class="m-0 font-weight-bold text-danger" *ngIf="errors['name']">{{errors['name']}}</p>
+  Pet Type:
+  <input class="form-control" type="text" name="type" [(ngModel)]="postData.type">
+  <p class="m-0 font-weight-bold text-danger" *ngIf="errors['type']">{{errors['type']}}</p>
+  Description:
+  <input class="form-control" type="text" name="description" [(ngModel)]="postData.description">
+  <p class="m-0 font-weight-bold text-danger" *ngIf="errors['description']">{{errors['description']}}</p>
+  Skills:
+  <div class="col-11 ml-auto">
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Skill1</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="skill1" [(ngModel)]="postData.skills[0]">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Skill2</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="skill2" [(ngModel)]="postData.skills[1]">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Skill3</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="skill3" [(ngModel)]="postData.skills[2]">
+      </div>
+    </div>
+   
+  </div>
+  <input type="submit" value="SUBMIT" class="btn btn-dark" (click)="onSubmit()">
+  <input type="submit" value="CANCEL" class="btn btn-danger" (click)="onCancel()">
 </form>

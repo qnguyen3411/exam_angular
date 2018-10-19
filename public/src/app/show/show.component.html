@@ -1,0 +1,28 @@
+
+<div class="row">
+<h2 class="col-8">Pet Shelter</h2>
+<a class="col-3" [routerLink]="['/pets']">Home</a>
+</div>
+<h5>Details about {{petToShow['name']}}</h5>
+
+<div class="row">
+  <p class="col-4 font-weight-bold">Pet type:</p>
+  <p class="col-8">{{petToShow['type']}}</p>
+</div>
+<div class="row">
+  <p class="col-4 font-weight-bold">Description:</p>
+  <p class="col-8">{{petToShow['description']}}</p>
+</div>
+<div class="row">
+  <p class="col-4 font-weight-bold">Skills:</p>
+  <ul class="col-8">
+    <li *ngFor="let skill of petToShow['skills']">{{skill}}</li>
+  </ul>
+</div>
+<div class="row">
+  <p class="col-4 font-weight-bold">Likes:</p>
+  <p class="col-8">{{petToShow['likes']}}</p>
+</div>
+
+<button class="btn btn-info" (click)="likePet()" [disabled]="alreadyLiked">Like this pet</button>
+<button class="btn btn-warning" (click)="adoptPet()">Adopt this pet</button>
