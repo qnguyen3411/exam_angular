@@ -52,6 +52,7 @@ app.post('/api/pets', (req, res) => {
   Pet.create(req.body).then(result => {
     res.json({status: "success", data: result});
   }).catch(err => {
+    if (!err.errors) { res.json({status: "error", data: err })}
     const errMessages = Object.keys(err.errors)
       .map(key => ({tag: key, message: err.errors[key].message}));
     res.json({status: "error", data: errMessages});
@@ -63,6 +64,7 @@ app.put('/api/pets/:id', (req, res) => {
   .then(result => {
     res.json({status: "success", data: result});
   }).catch(err => {
+    if (!err.errors) { res.json({status: "error", data: err })}
     const errMessages = Object.keys(err.errors)
       .map(key => ({tag: key, message: err.errors[key].message}));
     res.json({status: "error", data: errMessages});
