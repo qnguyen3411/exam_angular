@@ -20,7 +20,10 @@ export class ShowComponent implements OnInit {
     this._route.params.subscribe((params: Params) => {
       if (params['id']) {
         this._httpService.getOne(params['id']).subscribe(response => {
-          if (response['status'] === "error") { return; }
+          if (response['status'] === "error") {
+            this._router.navigate(['/pets'])
+            return;
+          }
           this.petToShow = response['data']
         })
       }
@@ -46,5 +49,5 @@ export class ShowComponent implements OnInit {
     })
   }
 
- 
+
 }
